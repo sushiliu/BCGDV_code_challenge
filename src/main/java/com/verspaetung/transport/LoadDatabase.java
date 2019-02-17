@@ -42,6 +42,9 @@ class LoadDatabase{
     @Autowired
     private DelayRepository delayRepository;
 
+    /**
+     * Initialize in memory database with test data from csv files
+     */
     @Bean
 	CommandLineRunner initDatabase() {
         return args -> {
@@ -52,6 +55,13 @@ class LoadDatabase{
 		};
     }
     
+    /**
+     * Use fasterxml library to process csv data to target Java Object
+     * 
+     * @param clazz Target Class of the data
+     * @param fileName Target csv file name, including relative path to "resources" folder
+     * @return
+     */
     private <T> List<T> loadObjectList(Class<T> clazz, String fileName) {
         try {
             CsvMapper mapper = new CsvMapper();
@@ -59,7 +69,6 @@ class LoadDatabase{
             ObjectReader reader = mapper.readerFor(clazz).with(schema);
             File file = new ClassPathResource(fileName).getFile();
             MappingIterator<T> readValues = reader.readValues(file);
-            log.info("schema: " + schema.getColumnDesc());
             return readValues.readAll();
         } catch (Exception e) {
             log.error("Error occurred while loading object list from file " + fileName, e);

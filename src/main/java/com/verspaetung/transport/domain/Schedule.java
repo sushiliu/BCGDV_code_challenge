@@ -10,9 +10,6 @@ import javax.persistence.IdClass;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Line
- */
 @Data
 @NoArgsConstructor
 @Entity
