@@ -14,7 +14,7 @@ Maven
 ### Start API server locally  
 Execute the following commands from project root folder
 ```
-spring-boot:run
+mvn spring-boot:run
 ```
 The endpoint name is 'lines' and is served on port 8081. You can change the default port by change parameter in "application.properties" file.
 
