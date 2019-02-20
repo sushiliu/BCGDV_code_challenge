@@ -31,7 +31,7 @@ Note that this API will search based on original schedule, delay is not consider
 
 Request example:
 ```
-curl -v 'http://localhost:8081/lines:time={time}&posX={x_coordinate}&posY={y_coordinate}'  
+curl -v 'http://localhost:8081/lines?time={time}&posX={x_coordinate}&posY={y_coordinate}'  
 
 ```
 
@@ -65,7 +65,7 @@ This API will search based on original schedule, delay is not considered when se
 
 Request example:
 ```
-curl -v 'http://localhost:8081/lines:stopId={stopId}'
+curl -v 'http://localhost:8081/lines?stopId={stopId}'
 ```
 
 Response example:
@@ -98,8 +98,8 @@ You can indicate a line with either line_id or line_name, but not both
 
 Request example:
 ```
-curl -v 'http://localhost:8081/lines:lineId={lineId}'
-curl -v 'http://localhost:8081/lines:lineName={lineName}'
+curl -v 'http://localhost:8081/lines?lineId={lineId}'
+curl -v 'http://localhost:8081/lines?lineName={lineName}'
 ```
 Response example:  
 
